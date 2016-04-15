@@ -1,4 +1,7 @@
 <h1>Issues</h1>
 <% @issues.each do |issue| %>
-  <%= render issue %>
+  <li>
+    <a href="<%= issue.url %>"><%= issue.title %></a>
+    <p><%= Time.parse(issue.updated_at).strftime("Updated at %d/%m/%Y %I:%M%p") %></p>
+  </li>
 <% end %>
