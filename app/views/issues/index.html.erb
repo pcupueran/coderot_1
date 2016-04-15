@@ -1,6 +1,7 @@
 <h1>Issues</h1>
 <% @issues.each do |issue| %>
-  <li class=<%= status(Time.parse(issue.updated_at))%>>
+  <li class=<%=status(Time.parse(issue.updated_at))%>>
+    <span ><%= issue.pull_request.nil? ? 'issue' : 'pr' %><span>
     <a href="<%= issue.html_url %>"><%= issue.title %></a>
     <p><%= Time.parse(issue.updated_at).strftime("Updated at %d/%m/%Y %I:%M%p") %></p>
     <% unless issue.assignee.nil? %>
