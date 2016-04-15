@@ -3,5 +3,8 @@
   <li class=<%= status(Time.parse(issue.updated_at))%>>
     <a href="<%= issue.html_url %>"><%= issue.title %></a>
     <p><%= Time.parse(issue.updated_at).strftime("Updated at %d/%m/%Y %I:%M%p") %></p>
+    <% unless issue.assignee.nil? %>
+      <a href="<%= issue.assignee.html_url %>">Assignee</a>
+    <% end %>
   </li>
 <% end %>
