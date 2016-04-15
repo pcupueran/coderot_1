@@ -13,13 +13,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'github_api'
 
 group :development, :test do
-  gem 'webmock'
-  gem 'vcr'
   gem 'rspec'
   gem 'pry-rails'
   gem 'byebug'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
