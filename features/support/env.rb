@@ -1,8 +1,8 @@
-
+require 'rspec/expectations'
 require 'cucumber/rails'
-
 #DatabaseCleaner
 require 'database_cleaner'
+require 'vcr'
 
 ActionController::Base.allow_rescue = false
 
@@ -13,3 +13,8 @@ rescue NameError
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+end

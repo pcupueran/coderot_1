@@ -1,13 +1,11 @@
-Given(/^an user enters a username$/) do
-  fill_in 'username', with: 'rails'
+Given(/^I am on the index page$/) do
+  VCR.use_cassette('rails_issues') do
+    visit root_path
+  end
+  expect(page).to have_content('Issues')
 end
 
-Given(/^an user enters a repository name$/) do
-  fill_in 'repo_name', with: 'rails'
-  click_button 'Submit'
-end
-
-Then(/^user is show the repository's issues$/) do
-  expect(page).to have_content('Shortcuts for `request.params[key]`')
-  expect(page).to have_content('removed without deprecation')
+Then(/^I see issues ordered by date$/) do
+  expect(page).to have_content('Shortcuts for `request.params[key]` and')
+  expect(page).to have_content('15/04/2016')
 end
