@@ -20,3 +20,15 @@
 .a-month {
   background-color: #627B5A;
 }
+
+.pull-request, .issue {
+  border: 1px solid blue;
+  padding: 5px;
+}
+
+.pr {
+  background-color: lightblue;
+}
+.issue {
+  background-color: purple;
+}
